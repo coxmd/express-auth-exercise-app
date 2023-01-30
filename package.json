@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Exercise App with Authentication - Express, Passport, sqlite3 for signing in",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www.js"
   },
   "keywords": [
     "express",
@@ -13,7 +13,9 @@
   "author": "Cox Musyoki",
   "license": "ISC",
   "dependencies": {
+    "connect-sqlite3": "^0.9.13",
     "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
