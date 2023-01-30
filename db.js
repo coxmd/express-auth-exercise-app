@@ -22,18 +22,18 @@ db.serialize(function() {
         user_id INTEGER NOT NULL, \
         provider TEXT NOT NULL, \
         subject TEXT NOT NULL, \
-        UNIQUE (provider, subject), \
+        UNIQUE (provider, subject) \
     )");
 
     db.run("CREATE TABLE IF NOT EXISTS exer ( \
         id INTEGER PRIMARY KEY, \
         owner_id INTEGER NOT NULL, \
         title TEXT NOT NULL, \
-        completed INTEGER, \
+        completed INTEGER \
     )");
 
     const salt = crypto.randomBytes(16);
-    db.run('INSERT OR IGNORE INTO users (username, hashed_password, salt) VALUES (?, ?, ?,)',
+    db.run('INSERT OR IGNORE INTO users (username, hashed_password, salt) VALUES (?, ?, ?)',
     ['alice',
     crypto.pbkdf2Sync('letmein', salt, 310000, 32, 'sha256'),
     salt
