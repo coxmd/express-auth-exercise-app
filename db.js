@@ -37,7 +37,7 @@ db.serialize(function() {
     ['alice',
     crypto.pbkdf2Sync('letmein', salt, 310000, 32, 'sha256'),
     salt
-    ])
+    ]);
 });
 
 module.exports = db;
