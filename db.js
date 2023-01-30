@@ -32,4 +32,4 @@ db.serialize(function() {
     )");
 });
 
-module.exports = db;
+modules.exports = db;
