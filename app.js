@@ -7,6 +7,7 @@ const passport = require('passport');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const authRouter = require('./routes/auth');
 
 // const SQliteStore = require('connect-sqlite3')(session);
 const indexRouter = require('./routes/index');
@@ -46,6 +47,7 @@ app.use(function(req, res, next) {
 */
 
 app.use('/', indexRouter);
+app.use('/', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,7 +55,7 @@ app.use(function(req, res, next) {
 })
 
 // error handler
-app.use(function(err, req, res) {
+app.use(function(err, req, res, next) {
     // set locals, only providing error in dev
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
